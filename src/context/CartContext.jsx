@@ -5,6 +5,8 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
+  const [itemAmount, setItemAmount] = useState(0);
+
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
     // check if the item is already in the cart
@@ -37,9 +39,39 @@ const CartProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
   };
+  const increaseAmount = (id) => {
+    const newCart = [...cart].map((item) => {
+      if (item.id === id) {
+        return { ...item, amount: item.amount + 1 };
+      } else {
+        return item;
+      }
+    });
+    setCart(newCart);
+  };
+  const decreaseAmount = (id) => {
+    const newCart = [...cart]
+      .map((item) => {
+        if (item.id === id) {
+          return { ...item, amount: item.amount - 1 };
+        } else {
+          return item;
+        }
+      })
+      .filter((item) => item.amount > 0); // filtreleme işlemi için kullanılıyor
+    setCart(newCart);
+  };
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseAmount,
+        decreaseAmount,
+        itemAmount,
+      }}
     >
       {children}
     </CartContext.Provider>
