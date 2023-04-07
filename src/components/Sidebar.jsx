@@ -13,14 +13,10 @@ const Sidebar = () => {
     <div
       className={` ${
         isOpen ? "right-0" : "-right-full"
-      }  w-full h-full top-0 bg-white fixed
-  shadow-2xl md:w-[35vw] xl:max-w-[30vw]  transition-all
-   duration-300 z-20 px-4 lg:px-[35px]`}
+      }  w-full h-full top-0 bg-white fixed shadow-2xl md:w-[35vw] xl:max-w-[30vw]  transition-all  duration-300 z-20 px-4 lg:px-[35px]`}
     >
-      <div
-        className="flex items-center justify-between
-      py-6  border-b"
-      >
+      {/* shoping bag */}
+      <div className="flex items-center justify-between py-6 bg-red-200 border-b">
         <div className="uppercase text-sm font-semibold">Shopping Bag (0)</div>
         {/* icons */}
         <div
@@ -30,11 +26,15 @@ const Sidebar = () => {
           <IoMdArrowForward className="text-2xl" />
         </div>
       </div>
-      <div>
+
+      {/* card item */}
+      <div className="flex flex-col gap-y-2 h-[520px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
           return <CardItem item={item} key={item.id} />;
         })}
       </div>
+
+
       <div className="flex flex-col  gap-y-3 py-4 mt-4">
         <div className=" flex w-full justify-between items-center">
           {/* total */}
