@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, clearCart, total } = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
   return (
     <div
       className={` ${
@@ -18,7 +18,9 @@ const Sidebar = () => {
     >
       {/* shoping bag */}
       <div className="flex items-center justify-between rounded-md p-2 mt-4 bg-gray-200 border-b">
-        <div className="uppercase text-sm font-semibold">Shopping Bag (0)</div>
+        <div className="uppercase text-sm font-semibold">
+          Shopping Bag ({itemAmount})
+        </div>
         {/* icons */}
         <div
           onClick={handleClose}
