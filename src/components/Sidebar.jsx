@@ -19,7 +19,7 @@ const Sidebar = () => {
       {/* shoping bag */}
       <div className="flex items-center justify-between rounded-md p-2 mt-4 bg-gray-200 border-b">
         <div className="uppercase text-sm font-semibold">
-          Shopping Bag ({itemAmount})
+          Alış-veriş səbətİ ({itemAmount})
         </div>
         {/* icons */}
         <div
@@ -41,7 +41,7 @@ const Sidebar = () => {
         <div className=" flex w-full justify-between items-center">
           {/* total */}
           <div className="uppercase font-semibold">
-            <span className="mr-2">Total:</span>$ {parseFloat(total).toFixed(2)}
+            <span className="mr-2">Cəm:</span>$ {parseFloat(total).toFixed(2)}
           </div>
           {/* clear cart icon */}
           <div
@@ -55,13 +55,13 @@ const Sidebar = () => {
           to={`/`}
           className="bg-gray-200 rounded flex p-1 justify-center items-center text-primary  w-full  font-medium"
         >
-          View Cart
+          Səbətə Bax{" "}
         </Link>
         <Link
           to={`/`}
-          className="bg-primary  rounded flex p-1 justify-center items-center text-white  w-full  font-medium"
+          className="bg-green-600  rounded flex p-1 justify-center items-center text-white  w-full  font-medium"
         >
-          Checkout
+          Ödənişə keç
         </Link>
       </div>
     </div>
