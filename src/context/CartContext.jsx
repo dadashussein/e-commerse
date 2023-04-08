@@ -18,6 +18,16 @@ const CartProvider = ({ children }) => {
     }
   }, [cart]);
 
+  // update total price
+  useEffect(()=>{
+    if(cart){
+      const totalPrice= cart.reduce((accumulator,currentItem)=>{
+        return accumulator + currentItem.price * currentItem.amount
+      },0)
+      setTotal(totalPrice)
+    }
+  })
+
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
     // check if the item is already in the cart
@@ -69,7 +79,7 @@ const CartProvider = ({ children }) => {
           return item;
         }
       })
-      .filter((item) => item.amount > 0); // filtreleme işlemi için kullanılıyor
+      .filter((item) => item.amount > 0);
     setCart(newCart);
   };
 
@@ -83,6 +93,7 @@ const CartProvider = ({ children }) => {
         increaseAmount,
         decreaseAmount,
         itemAmount,
+        total,
       }}
     >
       {children}

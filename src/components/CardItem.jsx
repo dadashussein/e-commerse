@@ -48,11 +48,11 @@ const CardItem = ({ item }) => {
               >
                 <IoMdRemove />
               </div>
-
               {/* amount */}
               <div className="h-full flex justify-center  items-center px-2">
                 {amount}
               </div>
+
               <div
                 onClick={() => increaseAmount(id)}
                 className="flex-1  h-full flex justify-center items-center cursor-pointer  "
@@ -60,13 +60,13 @@ const CardItem = ({ item }) => {
                 <IoMdAdd />
               </div>
             </div>
+            00
             {/* items price */}
             <div className="flex-1 flex items-center  justify-around">
               $ {price}
             </div>
             {/* final price */}
             {/* make the price at 2 decimals */}
-
             <div className="flex-1 flex justify-end item-center text-primary font-medium">{`$ ${parseFloat(
               price * amount
             ).toFixed(2)}`}</div>
